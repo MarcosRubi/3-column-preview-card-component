@@ -1,0 +1,212 @@
+$Bright-orange: hsl(31, 77%, 52%);
+$Dark-cyan: hsl(184, 100%, 22%);
+$Very-dark-cyan: hsl(179, 100%, 13%);
+$Transparent-white-paragraphs: hsla(0, 0%, 100%, 0.75);
+$Very-light-gray-background-headings-buttons: hsl(0, 0%, 95%);
+$font-title: 'Lexend Deca', sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    min-height: 100vh;
+    ;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+h2 {
+    font-family: 'Big Shoulders Display', cursive;
+    text-transform: uppercase;
+    color: $Very-light-gray-background-headings-buttons;
+    font-size: 2.2rem;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+        animation: visible 1s linear;
+    }
+}
+
+.btn {
+    background-color: $Very-light-gray-background-headings-buttons;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px;
+    display: block;
+    max-width: 150px;
+    border-radius: 25px;
+    transition: all 300ms;
+    font-weight: 700;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+        animation: visible 1.25s linear;
+    }
+}
+
+.main-container {
+    width: 90%;
+    max-width: 1440px;
+    margin: 30px auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.card__item {
+    padding: 30px 70px 30px 30px;
+    max-width: 350px;
+    margin: 0px auto;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+        animation: visible .5s linear;
+    }
+
+    &:first-child {
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    &:last-child {
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    &>* {
+        margin: 20px 0px;
+    }
+
+    p {
+        color: $Transparent-white-paragraphs;
+        line-height: 1.5;
+        opacity: 0;
+
+        &.visible {
+            opacity: 1;
+            animation: visible 1.25s linear;
+        }
+    }
+
+    img {
+        opacity: 0;
+
+        &.visible {
+            opacity: 1;
+            animation: visible .75s linear;
+        }
+    }
+
+}
+
+.bg-yellow {
+    background-color: $Bright-orange;
+
+    .btn {
+        color: $Bright-orange;
+        border: 2px solid $Bright-orange;
+
+        &:hover {
+            border: 2px solid $Very-light-gray-background-headings-buttons;
+            color: $Very-light-gray-background-headings-buttons;
+            background-color: transparent;
+        }
+    }
+}
+
+.bg-green {
+    background-color: $Dark-cyan;
+
+    .btn {
+        color: $Dark-cyan;
+        border: 2px solid $Dark-cyan;
+
+        &:hover {
+            border: 2px solid $Very-light-gray-background-headings-buttons;
+            color: $Very-light-gray-background-headings-buttons;
+            background-color: transparent;
+        }
+    }
+}
+
+.bg-dark-green {
+    background-color: $Very-dark-cyan;
+
+    .btn {
+        color: $Very-dark-cyan;
+        border: 2px solid $Very-dark-cyan;
+
+        &:hover {
+            border: 2px solid $Very-light-gray-background-headings-buttons;
+            color: $Very-light-gray-background-headings-buttons;
+            background-color: transparent;
+        }
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 15px;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+        animation: visible 1.5s linear;
+    }
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@keyframes visible {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@media (min-width:1024px) {
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 800px;
+        margin: 0px auto;
+        justify-content: center;
+    }
+
+    .card__item {
+        max-width: initial;
+        padding: 1.8rem;
+
+        &:first-child {
+            border-radius: 10px 0px 0px 10px;
+        }
+
+        &:last-child {
+            border-radius: 0px 10px 10px 0px;
+        }
+    }
+
+    .btn {
+        margin-top: 3rem;
+    }
+}
